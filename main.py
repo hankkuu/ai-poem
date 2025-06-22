@@ -1,11 +1,13 @@
 from dotenv import load_dotenv
 import streamlit as st
+import os
 
 load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
 
 from langchain_openai import ChatOpenAI
 
-llm = ChatOpenAI(model="gpt-4o")
+llm = ChatOpenAI(model="gpt-4o", api_key=api_key)
  
 st.write("""
 # 인공지능 시인
