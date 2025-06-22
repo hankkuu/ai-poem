@@ -7,7 +7,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 from langchain_openai import ChatOpenAI
 
-llm = ChatOpenAI(model="gpt-4o", api_key=api_key)
+llm = ChatOpenAI(model="gpt-4o")
  
 st.write("""
 # 인공지능 시인
