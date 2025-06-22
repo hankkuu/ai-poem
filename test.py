@@ -1,19 +1,15 @@
+import openai
 from dotenv import load_dotenv
-import streamlit as st
-
 load_dotenv()
 
-from langchain_openai import ChatOpenAI
+client = openai.OpenAI()
 
-llm = ChatOpenAI(model="gpt-4o")
- 
-st.write("""
-# 인공지능 시인
-""")
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "프랑스의 수도는 어디인가요?"}
+    ]
+)
 
-poem = st.text_input("시의 주제를 입력해주세요.")
-
-if st.button("시 작성하기"):
-    with st.spinner("Wait for it...", show_time=True):
-        res = llm.invoke(poem + " 시를 작성해주세요.")
-        st.write(res.content)
+print(response.choices[0].message.content)
