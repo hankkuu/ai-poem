@@ -3,26 +3,9 @@ import streamlit as st
 
 load_dotenv()
 
-# from openai import OpenAI
-
-# client = OpenAI()
-
-# response = client.chat.completions.create(
-#     model="gpt-4o-mini",
-#     messages=[
-#         {"role": "user", "content": "대한민국 수도는 어디야?"}
-#     ]
-# )
-
-# print(response.choices[0].message.content)
-
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(model="gpt-4o")
-
-# res = llm.invoke("대한민국 수도는 어디야?")
-# print(res.content)
-
  
 st.write("""
 # 인공지능 시인
